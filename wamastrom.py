@@ -116,6 +116,7 @@ def getWaterLevel():
 		try:													#
 			r = s.post(url)											# load data from url as r
 			content=r.text											# save the full string as content
+			r.close()											# close the connection to the server
 			content=content.split('<td valign="top" align="right" nowrap="nowrap"><b>', 1);			# cut the string at the defined HTML markerpoint 1
 			content=content[1].split("</b></td>", 1);							# cut the string at the defined HTML markerpoint 2
 			content=content[0]										# Get the string between both markerpoints. This should be the level in cm
