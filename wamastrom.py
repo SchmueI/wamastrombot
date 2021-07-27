@@ -77,7 +77,7 @@ entities of the user_list
 
 def check_time():													#
 	while True:													# infinite repeat
-		if time(15, 50) < datetime.now().time() < time(15, 51):							# defined Time to send message: at 13:15 (01:15pm)
+		if time(13, 15) < datetime.now().time() < time(13, 16):							# defined Time to send message: at 13:15 (01:15pm)
 			level=getWaterLevel()										# get water level once to avoid multiple requests
 			for user in users:										#
 				bot.send_message(user, level)								# send message to all users
