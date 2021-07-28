@@ -146,4 +146,8 @@ thread.*	-> Start Threads
 """
 _thread.start_new_thread(check_time, ())										# Start the time listener
 print("Bot started")	
-bot.polling()														# Start the bot listener											#
+try:	
+	bot.polling(timeout= 2000)											# Start the bot listener times out after 2000 seconds
+except ConnectionError:													# The bot listener appears to have ConnectionErrors from time to time
+	print("===EXPECTED: Connection Error occured===")								#Debug msg (to be removed)
+	pass														# Pass the error											#
